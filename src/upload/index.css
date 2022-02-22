@@ -23,3 +23,8 @@
 .upload-name {
   width: 300px;
 }
+
+.upload-label {
+  font-size: 18px;
+  width: 80px;
+}
