@@ -42,7 +42,10 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.28.0"
+    "eslint-plugin-react": "^7.28.0",
+    "favicons-webpack-plugin": "^5.0.2",
+    "http-server": "^14.1.0",
+    "webpack-pwa-manifest": "^4.3.0"
   },
   "description": "",
   "main": "index.js",
@@ -55,5 +58,5 @@
   "bugs": {
     "url": "https://github.com/eugenejade/grab-market-client/issues"
   },
-  "homepage": "https://github.com/eugenejade/grab-market-client#readme"
+  "homepage": "./"
 }
