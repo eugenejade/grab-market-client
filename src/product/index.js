@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import "./index.css";
 function ProductPage() {
   const { id } = useParams();
-  const [product, setProducts] = useState(null);
+  const [product, setProduct] = useState(null);
   useEffect(function () {
     axios
-      .get(`https://localhost:3000/products/${id}`)
+      .get(`http://localhost:8080/products/${id}`)
       .then(function (result) {
-        setProducts(result.data);
+        setProduct(result.data.product);
         console.log(result);
       })
       .catch(function (error) {
