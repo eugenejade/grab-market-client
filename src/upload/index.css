@@ -36,6 +36,13 @@
   height: 150px;
 }
 
+#upload-img {
+  width: 200px;
+  height: 200px;
+  margin-left: 16px;
+  object-fit: contain;
+}
+
 #submit-button {
   float: right;
   background-color: rgb(30, 120, 255);
