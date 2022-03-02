@@ -1,11 +1,38 @@
-import { Divider, Form, Input, InputNumber, Button, Upload } from "antd";
+import {
+  Divider,
+  Form,
+  Input,
+  InputNumber,
+  Button,
+  Upload,
+  message,
+} from "antd";
 import { useState } from "react";
 import "./index.css";
-import { API_URL } from "../config/constants";
+import { API_URL } from "../config/constants.js";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function UploadPage() {
   const [imageUrl, setImageUrl] = useState(null);
+  const navigate = useNavigate();
   const onSubmit = (values) => {
-    console.log(values);
+    console.log("onSubmit img======", imageUrl);
+    axios
+      .post(`${API_URL}/products`, {
+        name: values.name,
+        description: values.description,
+        seller: values.seller,
+        price: parseInt(values.price),
+        imageUrl: imageUrl,
+      })
+      .then((result) => {
+        console.log(result);
+        navigate.replace("/");
+      })
+      .catch((error) => {
+        console.error(error);
+        message.error(`에러가 발생했습니다. ${error.message}`);
+      });
   };
   const onChangeImage = (info) => {
     if (info.file.status === "uploading") {
@@ -14,6 +41,7 @@ function UploadPage() {
     if (info.file.status === "done") {
       const response = info.file.response;
       const imageUrl = response.imageUrl;
+      console.log("onChangeImage imageUrl======", imageUrl);
       setImageUrl(imageUrl);
     }
   };
