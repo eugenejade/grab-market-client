@@ -37,7 +37,7 @@ function MainPage() {
 
   return (
     <div>
-      <Carousel>
+      <Carousel autoplay autoplaySpeed={3000}>
         {banners.map((banner, index) => {
           return (
             <Link to={banner.href}>
@@ -54,6 +54,7 @@ function MainPage() {
         {products.map(function (product, index) {
           return (
             <div className="product-card">
+              {product.soldout === 1 && <div className="product-blur" />}
               <Link className="product-link" to={`/product/${product.id}`}>
                 <div>
                   <img

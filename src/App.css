@@ -45,8 +45,9 @@
 }
 
 #body {
-  height: 100vh;
-  width: 1024px;
+  min-height: 100vh;
+  max-width: 1024px;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 24px;
 }
@@ -72,4 +73,19 @@
   margin: 0;
   padding: 0;
   line-height: normal;
+}
+
+@media screen and (max-width: 400px) {
+  .product-card {
+    width: 100px !important;
+  }
+  #header {
+    padding: 0 8px;
+  }
+  #body {
+    padding: 0 8px;
+  }
+  .ant-caraousel {
+    margin: 0 -8px;
+  }
 }
